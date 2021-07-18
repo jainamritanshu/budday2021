@@ -127,7 +127,7 @@
 	<script type="text/javascript">
 
 		var options = {
-			center: [28.35927, 75.58976],
+			center: [21, 79],
 			zoom: 10
 		}
 
@@ -174,7 +174,7 @@
 		var allLocations = [[[28.35634, 75.59138], "Sharma's", "Cheese Hyderabadi Biryani", 1], [[28.3657990111956,75.59152029092516], "Pizzeria", "dry pasta", 2],[[28.418820356044844,75.60371896442655], "Ghoomar", "Malai Kofta", 3],[[28.362892711037514,75.59882416298234], "Marwad Sweet Shop", "dhokla", 4],[[28.65953152082918,77.3064428338797], "Dominon", "nacho stack burger", 5],[[12.936599795410977,77.62548517323611], "Kota Kachori", "Pyaaz kachori", 6],[[22.49993068836518,88.31723467275614], "Haaji Saab", "tutti frutti", 7],[[26.753110935431657,83.37210361713446], "singh burger", "mishrambu",, 8],[[26.751999624728647,83.37078395799033], "bobi's bakery", "pastry", 9],[[12.934912067738974,77.6162958424716], "Meghna", "biryani", 10],[[12.93306389894522,77.63105213099952], "pasta street", "sundried tomato pizza", 11],[[12.935760466234026,77.61410961575777], "social", "cheesy fries", 12],[[12.967099094599652,77.60834851823223], "olive kitchen and bar", "mushroom brushette", 13],[[12.972685888166271,77.5949869294012], "marriot", "sushi", 14],[[26.750959738946,83.22517910379433], "daana pani", "north indian khaana", 15],[[28.528592750631432,77.21895649517143], "wow momos saket", "momo lasagna", 16],[[26.754012074111056,83.37494923324435], "sukhsagar gkp", "chaat", 17],[[12.914577803628799,77.67740814417158], "vapour", "vapour special", 18],[[12.921165151434542,77.68348855160599], "big brewesky", "papad roti", 19],[[12.938071350446698,77.62621004445771], "glen's bakehouse", "cheesecake", 20]];
 		var doneMap = {}
 		var foodTaken = 0
-		var myMarker = L.marker([28.35927, 75.58976], {title: "Milk", alt: "The Big I", draggable: true, icon: myIcon})
+		var myMarker = L.marker([21, 79], {title: "Milk", alt: "The Big I", draggable: true, icon: myIcon})
 		.addTo(map)
 		.on('dragend', function() {
 			var mainCoord = myMarker.getLatLng();
