@@ -1,0 +1,211 @@
+<html>
+<head>
+	<title>Food Map</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet/v0.7.7/leaflet.css" />
+	<script src="https://d19vzq90twjlae.cloudfront.net/leaflet/v0.7.7/leaflet.js"></script>
+	<style type="text/css">
+
+	button {
+	  margin-top: 10px;
+	  line-height: 40px;
+	  font-weight: bold;
+	  padding: 0 40px;
+	  background: salmon;
+	  border: none;
+	}
+	button:hover {
+	  cursor: pointer;
+	  background: lightsalmon;
+	}
+
+	#myImg {
+	    border-radius: 5px;
+	    cursor: pointer;
+	    transition: 0.3s;
+	}
+
+	#myImg:hover {opacity: 0.7;}
+
+	/* The Modal (background) */
+	.modal {
+	    display: none; /* Hidden by default */
+	    position: fixed; /* Stay in place */
+	    z-index: 1; /* Sit on top */
+	    padding-top: 100px; /* Location of the box */
+	    left: 0;
+	    top: 0;
+	    width: 100%; /* Full width */
+	    height: 100%; /* Full height */
+	    overflow: auto; /* Enable scroll if needed */
+	    background-color: rgb(0,0,0); /* Fallback color */
+	    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+	}
+
+	/* Modal Content (image) */
+	.modal-content {
+	    margin: auto;
+	    display: block;
+	    width: 80%;
+	    max-width: 700px;
+	}
+
+	/* Caption of Modal Image */
+	#caption {
+	    margin: auto;
+	    display: block;
+	    width: 80%;
+	    max-width: 700px;
+	    text-align: center;
+	    color: #ccc;
+	    padding: 10px 0;
+	    height: 150px;
+	}
+
+	/* Add Animation */
+	.modal-content, #caption {    
+	    -webkit-animation-name: zoom;
+	    -webkit-animation-duration: 0.6s;
+	    animation-name: zoom;
+	    animation-duration: 0.6s;
+	}
+
+	@-webkit-keyframes zoom {
+	    from {-webkit-transform:scale(0)} 
+	    to {-webkit-transform:scale(1)}
+	}
+
+	@keyframes zoom {
+	    from {transform:scale(0)} 
+	    to {transform:scale(1)}
+	}
+
+	/* The Close Button */
+	.close {
+	    position: absolute;
+	    top: 15px;
+	    right: 35px;
+	    color: #f1f1f1;
+	    font-size: 40px;
+	    font-weight: bold;
+	    transition: 0.3s;
+	}
+
+	.close:hover,
+	.close:focus {
+	    color: #bbb;
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+
+	/* 100% Image Width on Smaller Screens */
+	@media only screen and (max-width: 700px){
+	    .modal-content {
+	        width: 100%;
+	    }
+	}
+	 	html, body, #map{
+	 		height: 100%;
+	 		padding: 0;
+	 		margin: 0;
+	 	}
+	</style>
+
+</head>
+<body>
+
+	<div id="myModal" class="modal">
+	  <span class="close">×</span>
+	  <img class="modal-content" id="img01">
+	  <div id="caption"></div>
+	</div>
+
+	<div id="map"></div>
+
+	<script src="L.Control.Button.js"></script>
+
+	<script type="text/javascript">
+
+		var options = {
+			center: [28.35927, 75.58976],
+			zoom: 10
+		}
+
+		function displayModal(curr_elem){
+			console.log(curr_elem)
+			var modal = document.getElementById('myModal');
+
+			// Get the image and insert it inside the modal - use its "alt" text as a caption
+			// var img = document.getElementById('myImg');
+			var modalImg = document.getElementById("img01");
+			var img = document.createElement("img");
+			img.src = curr_elem[curr_elem.length-1]+".png";
+
+			var captionText = document.getElementById("caption");
+		    modal.style.display = "block";
+		    modalImg.src = img.src
+
+			var span = document.getElementsByClassName("close")[0];
+
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function() { 
+			    modal.style.display = "none";
+			}
+		}
+		
+		var map = L.map('map', options);
+
+		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: 'OSM'})
+		.addTo(map);
+
+		var button = new L.Control.Button('Clue book');
+		button.addTo(map);
+		button.on('click', function () {
+		    displayModal(["clueBook"]);
+		});
+
+		var myIcon = L.icon({
+	    iconUrl: 'milk.gif',
+	    iconSize: [63, 72],
+	    iconAnchor: [22, 94],
+	    popupAnchor: [-3, -76],
+		});
+
+		var allLocations = [[[28.35634, 75.59138], "Sharma's", "Cheese Hyderabadi Biryani", 1]];
+		var doneMap = {}
+
+		var myMarker = L.marker([28.35927, 75.58976], {title: "Milk", alt: "The Big I", draggable: true, icon: myIcon})
+		.addTo(map)
+		.on('dragend', function() {
+			var mainCoord = myMarker.getLatLng();
+			console.log(String(mainCoord))
+			var closest_dist = 2**32
+			var flag = 0
+			for(let curr_elem of allLocations){
+				var curr_lat = curr_elem[0][0]
+				var curr_lng = curr_elem[0][1]
+				var curr_dist = mainCoord.distanceTo({"lat": curr_lat, "lng": curr_lng});
+				closest_dist = Math.min(closest_dist, curr_dist)
+				if(curr_dist < 50){
+					myMarker.bindPopup("Reached " + curr_elem[1] + " now eat " + curr_elem[2] + ".");
+					flag = 1
+					// Display Model start
+					displayModal(curr_elem)
+					// Display modal end
+					doneMap[curr_elem[curr_elem.length-1]] = 1;
+					if(doneMap.size == allLocations.size){
+						// displayModal
+						window.open("chole_bhature.jpg")
+					}
+					console.log("Woooohhhooooo")
+				}
+			}
+			if(flag == 0){
+				myMarker.bindPopup("Closest distance " + parseInt(closest_dist) + "m");
+			}
+		});
+
+	</script>
+
+</body>
+</html>
