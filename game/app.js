@@ -21,25 +21,24 @@ const server = http.createServer((req, res) => {
   }
   
   // fs.createReadStream('game.html').pipe(res)
-  if(url == '/'){
+  if(url == '/game/'){
   	serveFile("game.html", "text/html");
   }
   if(url.endsWith('.js') == true){
-  	console.log("hello");
-  	serveFile(url.substring(1), "text/javascript");
+  	serveFile(url.split("/").pop(), "text/javascript");
   }
   if(url.endsWith('.png') == true){
   	console.log(url)
-  	serveFile(url.substring(1), "image/png");
+  	serveFile(url.split("/").pop(), "image/png");
   }
   if(url.endsWith('.jpg') == true){
-  	serveFile(url.substring(1), "image/jpg");
+  	serveFile(url.split("/").pop(), "image/jpg");
   }
   if(url.endsWith('.gif') == true){
-  	serveFile(url.substring(1), "image/gif");
+  	serveFile(url.split("/").pop(), "image/gif");
   }
   if(url.endsWith('.ico') == true){
-  	serveFile(url.substring(1), "image/x-icon");
+  	serveFile(url.split("/").pop(), "image/x-icon");
   }
 })
 
