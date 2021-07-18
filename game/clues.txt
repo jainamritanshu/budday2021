@@ -1,22 +1,21 @@
-Sharma's, cheese hyderabadi biryani, 
-[, ], Pizzeria, dry pasta, 
-[, ], Ghoomar, Malai Kofta, 
-[, ], Marwad Sweet Shop, Kachori, dhokla, 
-[, ], Dominon, nacho stack burger, 
-[, ], Kota Kachori, ?, 
-[, ], Haaji Saab, tooty fruity, 
-[, ], singh burger, palak patta chaat, 
-[, ], radiant, ?, 
-[, ], bikanerwala, spring rolls, 
-[, ], pasta street, sundried tomato pizza, 
-[, ], olive kitchen and bar, mushroom patty, 
-[, ], marriot, buffet, 
-[, ], daana pani, north indian khaana, 
-[, ], wow momos saket, momo lasagna, 
-[, ], sukhsagar gkp, chaat, 
-[, ], vapour, vapour special, 
-[, ], big brewesky, papad roti, 
-[, ], nature's basket indiranagar, random food, 
-[, ], mannat, ice cream, 
-[, ], glen's bakehouse, cheesecake  , 
+Sharma's, cheese hyderabadi biryani, "Caption batao, caption batao na"
+[28.3657990111956, 75.59152029092516], Pizzeria, dry pasta, "Aaj bhi lab chodd dein?"
+[28.418820356044844, 75.60371896442655], Ghoomar, Malai Kofta, "Unhe pata chal gaya ki hum dono bahar aaye"
+[28.362892711037514, 75.59882416298234], Marwad Sweet Shop, dhokla, "Pehle yahan kha lete, fir 12 baje pizzeria chalenge"
+[28.65953152082918, 77.3064428338797], Dominon, nacho stack burger, "Murthal nahi jaa paaye yaar"
+[12.936599795410977, 77.62548517323611], Kota Kachori, "Pyaaz Kachori", "Sunday subah ho gayi, pyaaz kachori manga lete"
+[22.49993068836518, 88.31723467275614], Haaji Saab, tutti frutti, "Humein nahi share karni ice cream"
+[26.753110935431657, 83.37210361713446], singh burger, mishrambu, "Tumhein mishrambu nahi pata?"
+[26.751999624728647, 83.37078395799033], bobi's bakery, pastry, "Bobby tikkiwala kaun?"
+[12.934912067738974, 77.6162958424716], Meghna, biryani, "Sunday dopahar ko khaenge ye"
+[12.93306389894522, 77.63105213099952], pasta street, sundried tomato pizza, "Humein aise hi pizza pasand, cheese burst type nahi"
+[12.935760466234026, 77.61410961575777], social, cheesy fries, "Cheesy fries khaane"
+[12.967099094599652, 77.60834851823223], olive kitchen and bar, mushroom brushette, "Bilkul hi gourmet type de rhe"
+[12.972685888166271, 77.5949869294012], marriot, sushi, "Drinks ka price ismein included nahi hai, alag se hai"
+[26.750959738946, 83.22517910379433], daana pani, north indian khaana, "Wahin jahan amaya ke mammi papa ke saath gaye the"
+[28.528592750631432, 77.21895649517143], wow momos saket, momo lasagna, "Hadd ho gayi, poore din ghoomne ke baad ab kuch decent khaaya"
+[26.754012074111056, 83.37494923324435], sukhsagar gkp, chaat, "Bahut hi yummy lassi hoti"
+[12.914577803628799, 77.67740814417158], vapour, vapour special, "Fries waali basket mangaenge"
+[12.921165151434542, 77.68348855160599], big brewesky, papad roti, "Humein to social se better laga"
+[12.938071350446698, 77.62621004445771], glen's bakehouse, cheesecake  , "New york cheese cake"
 best good food tasting expert
